@@ -1,0 +1,44 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    height: 100%;
+    background-color: #f6f9fc;
+}
+
+table {
+    width: 100%;
+    border: 1px solid #444444;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #444444;
+}
+
+td:nth-child(1) {
+    width: 100px;
+}
+
+.title, .check {
+    width: 50px;
+    text-align: center;
+}
+
+.check {
+    width: 70px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.check_on {
+    color : white;
+    background-color: tomato;
+}
+
+@media(max-width : 800px){
+    td {
+        font-size : 2em;
+    }
+}

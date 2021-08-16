@@ -1,3 +1,4 @@
+/*
 datas = []
 
 datas[0] = {"time" : "1학기 중간고사",  "type": "어휘","d" : [{'title': '가변성', 'ex': '일정한 조건에서 변할 수 있는 성질.'},
@@ -441,6 +442,8 @@ datas[3] = {
     {'title': '후회막급', 'ex': '이미 잘못된 뒤에 아무리 후회하여도 다시 어찌할 수가 없음.'}]
 }
 
+*/
+
 /*
 url quers의 id가
 0 -> datas[0] == 1학기 중간고사 국어 어휘
@@ -477,7 +480,10 @@ function get_quers(){
 id = Number(get_quers()["id"])
 // alert(id)
 if ((window.location.href).indexOf("index.html") === -1){
+    // index.html이 아닌지 판단
     if(isNaN(id) || id < 0 || id > 3){
         location.href = "/index.html"
     }
 }
+
+// console.log((window.location.href).indexOf("index.html"));

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script src="/__/firebase/8.9.1/firebase-app.js"></script>
+    <script src="/__/firebase/8.9.1/firebase-auth.js"></script>
+    <script src="/__/firebase/8.9.1/firebase-firestore.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyBor-jfaBQ49zL_Bp-lUz660-RHQ0PsfOg",
+            authDomain: "exam-6c47b.firebaseapp.com",
+            projectId: "exam-6c47b",
+            storageBucket: "exam-6c47b.appspot.com",
+            messagingSenderId: "777164885894",
+            appId: "1:777164885894:web:3fa0950b6338f6979e6607",
+            measurementId: "G-2NXSWDZX6S"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // firebase.analytics();
+
+        const db = firebase.firestore();
+    </script>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <!-- <script>
+        for (let i = 0; i < datas.length; i++) {
+            const element = datas[i];
+            
+            const docs = db.collection("data").doc(String(i))
+            
+            docs.set({time : element["time"], type : element["type"]})
+            for (let j = 0; j < element["d"].length; j++) {
+                const e = element["d"][j];
+                
+                docs.collection("d").doc(String(j)).set(e)
+                console.log(`${i}, ${j}`);
+            }
+        }
+    </script> -->
+
+    <script>
+        
+    </script>
+
+</body>
+
+</html>

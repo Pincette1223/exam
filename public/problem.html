@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>국어 어휘 문제</title>
@@ -10,37 +11,65 @@
     <link rel="stylesheet" href="css/font.css">
 
     <script src="js/data.js"></script>
+
+
+    <script src="/__/firebase/8.9.1/firebase-app.js"></script>
+    <script src="/__/firebase/8.9.1/firebase-auth.js"></script>
+    <script src="/__/firebase/8.9.1/firebase-firestore.js"></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyBor-jfaBQ49zL_Bp-lUz660-RHQ0PsfOg",
+            authDomain: "exam-6c47b.firebaseapp.com",
+            projectId: "exam-6c47b",
+            storageBucket: "exam-6c47b.appspot.com",
+            messagingSenderId: "777164885894",
+            appId: "1:777164885894:web:3fa0950b6338f6979e6607",
+            measurementId: "G-2NXSWDZX6S"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // firebase.analytics();
+        const db = firebase.firestore()
+    </script>
 </head>
+
 <body>
     <header>
         <script>
             var value = get_quers()["id"] % 2 == 0 ? "어휘" : "한자 성어"
             document.write(`<h1>국어 ${value} 문제</h1>`)
         </script>
-        <!-- <h1>국어 어휘 문제</h1> -->
-        
+
         <script>
             document.write(`<button onclick="location.href  = '/list.html?id=${get_quers()["id"]}'">어휘 리스트 보기</button>`)
-            </script>
+        </script>
+        
         <button onclick="location.href  = '/'">메인 화면으로</button>
         <span class="con">
             <b><span class="num">0</span>회</b> 연속 정답
         </span>
-        
+
         <div class="mde">
             <button class="mode-button">모드1</button>
             <p class="mode-ex">어휘에 대한 설명이 주어지고 설명에 맞는 어휘를 고르는 모드입니다.</p>
         </div>
-        
+
         <div class="mon">
             <h2 class="title">다음에서 설명하는 어휘는 ?</h2>
             <p class="ex">설명</p>
         </div>
     </header>
-    
-    <div class="problems"><p></p><p></p><p></p><p></p><p></p></div>
-    
-    
+
+    <div class="problems">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+
+
     <footer>
         <p>
             모든 어휘에 대한 설명은 <a href="https://www.korean.go.kr/front/main.do">국립국어원</a>에서 가져왔음을 밝힙니다.
@@ -48,4 +77,5 @@
     </footer>
     <script src="js/problem.js"></script>
 </body>
+
 </html>

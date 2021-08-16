@@ -1,7 +1,9 @@
-for(var i = 0; i < datas.length; i++){
-    button = document.createElement("button")
-    button.setAttribute("onclick", `location.href = './problem.html?id=${i}'`)
-    button.innerHTML = `${datas[i]["time"]} 국어 ${datas[i]["type"]}`
+db.collection("data").get().then((documents) => {
+    documents.forEach(doc => {
+        let button = document.createElement("button")
+        button.innerText = `${doc.data()["time"]} 국어 ${doc.data()["type"]}`
+        button.addEventListener("click", () =>{location.href = './problem.html?id=' + doc.id})
 
-    document.querySelectorAll("div.buttons")[0].appendChild(button)
-}
+        document.querySelector("div.buttons").appendChild(button)
+    });
+})

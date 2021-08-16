@@ -455,6 +455,7 @@ url quers의 id가
 */
 
 function get_quers(){
+    // query를 가져오는 함수
     urls = location.search.split("&")
     quers = {}
 
@@ -469,12 +470,6 @@ function get_quers(){
         // console.log(urls[i])
     }
     return quers
-
-    // real = data[quers["id"]]
-
-    // for(var i = 0; i < real.length; i++){
-    //     console.log(real[i])
-    // }
 }
 
 id = Number(get_quers()["id"])
@@ -482,7 +477,8 @@ id = Number(get_quers()["id"])
 if ((window.location.href).indexOf("index.html") === -1){
     // index.html이 아닌지 판단
     if(isNaN(id) || id < 0 || id > 3){
-        location.href = "/index.html"
+        // id가 없거나, id가 지정된 범위 밖일때 메인페이지로 이동한다.
+        location.href = "/"
     }
 }
 

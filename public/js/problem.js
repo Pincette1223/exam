@@ -1,218 +1,105 @@
-// function shuffle(a) {
-//     // 배열을 섞어주는 함수
-//     var j, x, i;
-//     for (i = a.length; i; i -= 1) {
-//         j = Math.floor(Math.random() * i);
-//         x = a[i - 1];
-//         a[i - 1] = a[j];
-//         a[j] = x;
-//     }
+function random(start, end) {
+    /* 시작값과 끝 값을 받아서 두 수 사이의 난수를 반환한다. */
+    return Math.floor(Math.random() * (end - start)) + start;
+}
 
-//     return a;
-// }
-
-
-// // document.body.onabort = addElement("s");
-
-// // function addElement(text) {
-// //     var newDiv = document.createElement("div");
-
-// //     var newContent = document.createTextNode(text);
-// //     newDiv.appendChild(newContent);
-
-// //     var currenDiv = document.getElementById("div1");
-// //     document.body.insertBefore(newDiv, currenDiv);
-// // }
-
-
-
-// var ex = document.querySelector("p.ex");
-// var title = document.querySelectorAll("h2")[0];
-// var problems = document.querySelector(".problems");
-// var problem_buttons = document.querySelectorAll(".problem_button");
-
-
-// function setting(){
-//     data = shuffle(data);
-//     // title.innerHTML = data[0].title;
-//     ex.innerHTML = data[0].ex;
-
-//     problem_list = data.slice(0, 5);
-//     problem_list = shuffle(problem_list);
-
-
-//     for(var i = 0; i < 5; i++){
-//         // problems = document.createElement("div");
-//         // problems.setAttribute("class", "problems");
-//         newDIV = document.createElement("span");
-        
-//         newDIV.innerHTML = `${problem_list[i].title}`;
-//         newDIV.setAttribute("class", "problem_button");
-//         newDIV.setAttribute("onclick", `check_answer(${i})`)
-//         if (data[0].title == problem_list[i].title){
-//             // newDIV.classList.add("answer");
-//             answer_index = i;
-//         }   else{
-//             // newDIV.classList.add("w_answer");
-//         }
-        
-
-//         problems.appendChild(newDIV);
-//         // document.querySelector("body").appendChild(problems);
-//     }
-// }
-
-// function check_answer(index){
-//     if (index == answer_index){
-//         alert("정답");
-
-//         for (var i = 0; i < problem_list.length; i++){
-//             problems.removeChild(problems.childNodes[0]);
-//         }
-
-//         setting();
-//     }   else{
-//         alert("오답");
-//         document.querySelector(`.problem_button:nth-child(${index + 1})`).classList.add("t");
-//     }
-// }
-
-
-// setting()
-
-
-var mode = 0; // 0이면 문제가 설명으로, 1이면 문제가 한자 성어로
-
-var con = 0;
-
-function shuffle(a) {
-    // 배열을 섞어주는 함수
-    var j, x, i;
-    for (i = a.length; i; i -= 1) {
-        j = Math.floor(Math.random() * i);
-        x = a[i - 1];
-        a[i - 1] = a[j];
-        a[j] = x;
-    }
-
-    return a;
+function shuffle(arr) {
+    return arr.sort(() => Math.random() - 0.5)
 }
 
 
-// document.body.onabort = addElement("s");
+function setting() {
+    while (Div_options.hasChildNodes()) {
+        Div_options.removeChild(Div_options.firstChild);
+    }
 
-// function addElement(text) {
-//     var newDiv = document.createElement("div");
-
-//     var newContent = document.createTextNode(text);
-//     newDiv.appendChild(newContent);
-
-//     var currenDiv = document.getElementById("div1");
-//     document.body.insertBefore(newDiv, currenDiv);
-// }
-
-
-
-var ex = document.querySelector("p.ex");
-// var title = document.querySelectorAll("h2")[0];
-var problems = document.querySelector(".problems");
-var problem_buttons = document.querySelectorAll(".problem_button");
-
-
-function setting(){
-    document.querySelectorAll(".num")[0].innerHTML = con;
-    // console.log(con);
-
-    data = datas[get_quers()["id"]]["d"]
     data = shuffle(data);
-    // title.innerHTML = data[0].title;
-    if (mode == 0){
-        ex.innerHTML = data[0].ex;
-        ex.style.fontSize = "1.5em";
+    continue_.querySelector("b.num").innerText = `${con}회`
+    if (con == 2) {
+        continue_.hidden = false;
+    }
+
+
+    options = data.slice(0, 5);
+    answer = options[0];
+
+    if(mode == 0){
+        P_ex.innerText = answer["ex"]
     }   else{
-        ex.innerHTML = data[0].title;
-        ex.style.fontSize = "2.5em";
-
-    }
-    
-    problem_list = data.slice(0, 5);
-    problem_list = shuffle(problem_list);
-
-
-
-    for (var i = 0; i < problem_list.length; i++){ // 정답 버튼을 모두 지운다.
-        problems.removeChild(problems.childNodes[0]);
+        P_ex.innerText = answer["title"]
     }
 
-    for(var i = 0; i < 5; i++){ // 답을 선택하는 1~5번 버튼을 만든다.
-        // problems = document.createElement("div");
-        // problems.setAttribute("class", "problems");
-        newDIV = document.createElement("span");
+    options = shuffle(options)
 
-        if (mode == 0){
-            var  text = problem_list[i].title;
-        }   else{
-            var  text = problem_list[i].ex;
-        }
-        
-        newDIV.innerHTML = text;
-        newDIV.setAttribute("class", `problem_button pb-mode${mode}`);
-        newDIV.setAttribute("onclick", `check_answer(${i})`)
-        if (data[0].title == problem_list[i].title){
-            // newDIV.classList.add("answer");
-            answer_index = i;
-        }   else{
-            // newDIV.classList.add("w_answer");
-        }
-        
+    for (let i = 0; i < options.length; i++) {
+        const element = options[i];
 
-        problems.appendChild(newDIV);
-        // document.querySelector("body").appendChild(problems);
+        let option = document.createElement("div");
+        option.classList.add("option")
+        option.classList.add("bg-nomal")
+        option.classList.add(`mode${mode + 1}`)
+
+        if(mode == 0){
+            option.innerText = options[i]["title"]
+        }   else{
+            option.innerText = options[i]["ex"]
+        }
+        option.addEventListener("click", () => { checkAnswer(i) })
+
+        Div_options.appendChild(option)
     }
 }
 
-function check_answer(index){
-    if (index == answer_index){
-        alert("정답");
-        
+
+function checkAnswer(idx) {
+    if (options[idx] === answer) {
+        alert("정답입니다.")
         con++;
 
-        if(con == 2){
-            // document.querySelectorAll(".con")[0].style.display = "inline";
-        }
-        setting();
-    }   else{
-        if (mode == 0){
-            var a = `"${problem_list[index].ex}"라는 뜻 입니다.`;
-        } else{
-            var a = `"${problem_list[index].title}"에 대한 설명 입니다.`;
-        }
-        alert(`오답/${a}`);
+        setting()
+    } else {
+        alert(`오답입니다.\n${options[idx]["ex"]} 라는 뜻 입니다.`)
+        Div_options.childNodes[idx].classList.add("wrong")
+
         con = 0;
-        // document.querySelectorAll(".num")[0].innerHTML = con;
-        // document.querySelectorAll(".con")[0].style.display = "none";
-        document.querySelector(`.problem_button:nth-child(${index + 1})`).classList.add("t");
+        continue_.hidden = true;
     }
 }
 
-var mode_button = document.querySelector("button.mode-button");
-mode_button.onclick = mode_change;
+//matching
+const Div_options = document.querySelector(".options");
+const P_ex = document.querySelector(".ex");
+const continue_ = document.querySelector(".continue");
+const modeChange = document.querySelector(".modeChange");
+const modeEx = document.querySelector(".modeEx");
 
-function mode_change(){
+let mode = 0;
+
+continue_.hidden = true;
+
+modeChange.addEventListener("click", () => {
     if(mode == 0){
-        mode_button.style.backgroundColor = "#6C6CFE";
-        mode_button.innerHTML = "모드2";
-        document.querySelector("p.mode-ex").innerHTML = "어휘가 주어지고 그 어휘에 맞는 설명을 고르는 문제 입니다.";
+        modeChange.innerText = "모드2"
+        modeChange.classList.add("mode2")
+        modeChange.classList.remove("mode1")
+        modeEx.innerText = "어휘가 나오고 어휘에 대한 설명을 맞추는 모드 입니다."
+        mode++;
     }   else{
-        mode_button.style.backgroundColor = "#f8585b";
-        mode_button.innerHTML = "모드1";
-        document.querySelector("p.mode-ex").innerHTML = "어휘에 대한 설명이 주어지고 설명에 맞는 어휘를 고르는 문제 입니다.";
+        modeChange.innerText = "모드1"
+        modeChange.classList.add("mode1")
+        modeChange.classList.remove("mode2")
+        modeEx.innerText = "어휘에 대한 설명이 나오고 어휘를 맞추는 모드 입니다."
 
+        mode--;
     }
-    mode = (mode + 1) % 2
-
 
     setting()
-}
+})
+
+
+let con = 0;
+const id = get_quers()["id"]
+let data = datas[id]["d"]
+
 
 setting()

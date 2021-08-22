@@ -7,3 +7,5 @@ db.collection("data").get().then((documents) => {
         document.querySelector("div.buttons").appendChild(button)
     });
 })
+
+console.log(location.pathname);

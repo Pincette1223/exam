@@ -3,19 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>국어 어휘 문제</title>
+    <title>국어 어휘 문제 사이트</title>
     <link rel="stylesheet" href="css/problem.css">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/font.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
 
-    <script src="js/data.js"></script>
-
-
+    <script src="https://kit.fontawesome.com/8ef3a014d4.js" crossorigin="anonymous"></script>
     <script src="/__/firebase/8.9.1/firebase-app.js"></script>
     <script src="/__/firebase/8.9.1/firebase-auth.js"></script>
     <script src="/__/firebase/8.9.1/firebase-firestore.js"></script>
+    <script src="./js/data.js"></script>
+
 
     <script>
         var firebaseConfig = {
@@ -29,53 +27,51 @@
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-        // firebase.analytics();
-        const db = firebase.firestore()
     </script>
+    <script src="./js/firebase.js"></script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <body>
-    <header>
-        <script>
-            var value = get_quers()["id"] % 2 == 0 ? "어휘" : "한자 성어"
-            document.write(`<h1>국어 ${value} 문제</h1>`)
-        </script>
-
-        <script>
-            document.write(`<button onclick="location.href  = '/list.html?id=${get_quers()["id"]}'">어휘 리스트 보기</button>`)
-        </script>
-        
-        <button onclick="location.href  = '/'">메인 화면으로</button>
-        <span class="con">
-            <b><span class="num">0</span>회</b> 연속 정답
-        </span>
-
-        <div class="mde">
-            <button class="mode-button">모드1</button>
-            <p class="mode-ex">어휘에 대한 설명이 주어지고 설명에 맞는 어휘를 고르는 모드입니다.</p>
-        </div>
-
-        <div class="mon">
-            <h2 class="title">다음에서 설명하는 어휘는 ?</h2>
-            <p class="ex">설명</p>
-        </div>
-    </header>
-
-    <div class="problems">
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
+    <div class="content">
+        <header>
+            <button class="modeChange mode1">모드1</button>
+            <p class="modeEx">어휘에 대한 설명이 나오고 어휘를 맞추는 모드 입니다.</p>
+            <div class="btns">
+                <button onclick="location.href = '/'">
+                    <i class="fas fa-home"></i>
+                    <span>메인 화면</span>
+                </button>
+                <button onclick="location.href = `/list.html?id=${get_quers()['id']}`">
+                    <i class="fas fa-list-ul"></i>
+                    <span>어휘 리스트 보기</span>
+                </button>
+            </div>
+        </header>
+        <main>
+            <div class="problem bg-nomal">
+                <h2>다음에서 설명하는 어휘는?</h2>
+                <!-- <p class="ex">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nemo rem dolore at, officiis rerum recusandae quam odio dicta quas natus. Praesentium, unde deleniti voluptatibus rerum ut eum aperiam magni.</p> -->
+                <p class="ex"></p>
+                </div>
+                
+                <div class="options">
+                    <!-- <div class="option bg-nomal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eligendi dicta culpa impedit, velit ipsam sunt dolorem iusto quos ea corporis ut adipisci optio, minima itaque. Aut consequuntur porro recusandae.</div>
+                    <div class="option bg-nomal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eligendi dicta culpa impedit, velit ipsam sunt dolorem iusto quos ea corporis ut adipisci optio, minima itaque. Aut consequuntur porro recusandae.</div>
+                    <div class="option bg-nomal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eligendi dicta culpa impedit, velit ipsam sunt dolorem iusto quos ea corporis ut adipisci optio, minima itaque. Aut consequuntur porro recusandae.</div>
+                    <div class="option bg-nomal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eligendi dicta culpa impedit, velit ipsam sunt dolorem iusto quos ea corporis ut adipisci optio, minima itaque. Aut consequuntur porro recusandae.</div>
+                    <div class="option bg-nomal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eligendi dicta culpa impedit, velit ipsam sunt dolorem iusto quos ea corporis ut adipisci optio, minima itaque. Aut consequuntur porro recusandae.</div> -->
+                </div>
+            </main>
+        <footer>
+            <div class="korean">모든 어휘 자료는 <a href="https://www.korean.go.kr/">국립 국어원</a>에서 가져왔습니다.</div>
+            <div class="continue"><b class="num">2회</b> 연속 정답</div>
+        </footer>
     </div>
-
-
-    <footer>
-        <p>
-            모든 어휘에 대한 설명은 <a href="https://www.korean.go.kr/front/main.do">국립국어원</a>에서 가져왔음을 밝힙니다.
-        </p>
-    </footer>
-    <script src="js/problem.js"></script>
+    <script src="./js/problem.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-/*
+
 datas = []
 
 datas[0] = {"time" : "1학기 중간고사",  "type": "어휘","d" : [{'title': '가변성', 'ex': '일정한 조건에서 변할 수 있는 성질.'},
@@ -442,7 +442,6 @@ datas[3] = {
     {'title': '후회막급', 'ex': '이미 잘못된 뒤에 아무리 후회하여도 다시 어찌할 수가 없음.'}]
 }
 
-*/
 
 /*
 url quers의 id가
@@ -474,7 +473,7 @@ function get_quers(){
 
 id = Number(get_quers()["id"])
 // alert(id)
-if ((window.location.href).indexOf("index.html") === -1){
+if (location.pathname !== "/" && location.pathname !== "/index.html"){
     // index.html이 아닌지 판단
     if(isNaN(id) || id < 0 || id > 3){
         // id가 없거나, id가 지정된 범위 밖일때 메인페이지로 이동한다.

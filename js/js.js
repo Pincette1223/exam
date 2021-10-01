@@ -13,4 +13,19 @@ const first = new Date(2021, 10, 5)
 const d = korean - toDay
 
 console.log(d);
-document.querySelector(".dDay").innerHTML = `중간고사 D-${first.getDate() - toDay.getDate() === 0 ? 'Day' : first.getDate() - toDay.getDate()}, 국어 시험 D-${korean.getDate() - toDay.getDate() === 0 ? 'Day' : korean.getDate() - toDay.getDate()}`
+
+let dDay = ""
+if(first.getDate() - toDay.getDate() === 0){
+    dDay += `중간고사 D-Day,`
+}   else if(first.getDate() - toDay.getDate() > 0){
+    dDay += `중간고사 D-${first.getDate() - toDay.getDate()},`
+}
+
+if(korean.getDate() - toDay.getDate() === 0){
+    dDay += `국어 시험 D-Day,`
+}   else if(korean.getDate() - toDay.getDate() > 0){
+    dDay += `국어 시험 D-${korean.getDate() - toDay.getDate()},`
+}
+
+
+document.querySelector(".dDay").innerHTML = dDay

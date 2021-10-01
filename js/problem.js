@@ -73,10 +73,10 @@ function checkAnswer(idx, answer) {
         let msg = ""
         if(mode === 0){
             //모드 1인 경우
-            msg = `오답입니다.\n${options[idx]["ex"]} 입니다.`
+            msg = `오답입니다.\n${options[idx]["ex"]} 라는 뜻 입니다.`
         }   else{
             // 모드 2인 경우
-            msg = `오답입니다.\n${options[idx]["title"]}라는 뜻 입니다.`
+            msg = `오답입니다.\n${options[idx]["title"]}입니다.`
         }
         alert(msg)
         Div_options.childNodes[idx].classList.add("wrong")

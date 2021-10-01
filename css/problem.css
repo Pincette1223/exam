@@ -8,6 +8,7 @@ body {
     height: 100%;
     display: flex;
     justify-content: center;
+    align-items : center;
 }
 
 
@@ -26,14 +27,19 @@ header {
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
+    justify-content : center;
 
     padding : 10px 10px;
 }
 
+header > *{
+    margin : 10px 0;
+}
+
 .modeChange{
-    /* margin : 5px 5px; */
-    padding : 1rem 2rem;
-    font-size: 1.5em;
+    padding : 0.75rem 1.25rem;
+    margin-right: 10px;
+    font-size: 1em;
 
     border-radius: 10px;
     color : white;
@@ -45,7 +51,7 @@ header {
 
 .modeChange.mode1{
     background-color: #EB4648;
-    border : 3px solid #ed484b;
+    border : 3px solid #da4d4f;
 }
 .modeChange.mode2{
     background-color: #453CF0;
@@ -82,28 +88,26 @@ header {
 }
 
 .ex{
-    font-size: 1.5em;
-}
-
-.options{
-    margin-top: 60px;
+    font-size: 1.4em;
 }
 
 .option{
     margin : 30px 60px;
     padding : 16px 20px;
     transition: 0.25s;
+
+    font-size: 1.25em;
     
     cursor: pointer;
 }
 
-.option.mode1{
+/* .option.mode1{
     font-size: 2.2rem;
 }
 
 .option.mode2{
     font-size: 1.2rem;
-}
+} */
 
 .option:hover {
     transform: scale(1.03);
@@ -135,4 +139,20 @@ footer{
 .continue {
     float: right;
     font-size: 2em;
+}
+
+.simsim{
+    padding : 10px 7px;
+    border : 1px solid #c7c7c7;
+    border-radius: 10px;
+
+    background-color: #E4E4E4;
+
+    cursor: pointer;
+}
+
+@media (max-width : 530px){
+    .option, .problem{
+        margin : 30px 10px;
+    }
 }

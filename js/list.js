@@ -1,5 +1,7 @@
 data = datas[get_quers()["id"]]["d"]
 
+document.querySelector(".tmi").innerText = `전체 ${data.length}개..`
+
 OnO = []
 
 for(var i = 0; i < data.length; i++){

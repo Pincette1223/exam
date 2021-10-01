@@ -91,23 +91,19 @@ header > *{
     font-size: 1.4em;
 }
 
-.option{
-    margin : 30px 60px;
-    padding : 16px 20px;
-    transition: 0.25s;
 
+.optionGroup{
+    margin : 30px 60px;
+}
+
+.option{
+    transition: 0.25s;
+    padding : 16px 20px;
     font-size: 1.25em;
     
     cursor: pointer;
 }
 
-/* .option.mode1{
-    font-size: 2.2rem;
-}
-
-.option.mode2{
-    font-size: 1.2rem;
-} */
 
 .option:hover {
     transform: scale(1.03);
@@ -116,13 +112,23 @@ header > *{
     color : white;
 }
 
-.wrong{
+.wrong .option{
     background-color: red;
     color : white;
 }
 
-.wrong:hover{
+.wrong .option:hover{
     background-color: rgb(121, 0, 0);
+}
+
+.wrongEx {
+    color : red;
+    font-size: 1.25em;
+    display: none;
+}
+
+.wrong .wrongEx{
+    display: block;
 }
 
 

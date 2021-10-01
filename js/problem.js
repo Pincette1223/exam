@@ -45,6 +45,9 @@ function setting() {
         const element = options[i];
         // console.log(element);
 
+        let optionGroup = document.createElement("div");
+        optionGroup.classList.add("optionGroup")
+
         let option = document.createElement("div");
         option.classList.add("option")
         option.classList.add("bg-nomal")
@@ -58,7 +61,20 @@ function setting() {
 
         option.addEventListener("click", () => { checkAnswer(i, answer)})
 
-        Div_options.appendChild(option)
+        let wrongEx = document.createElement("div")
+        wrongEx.classList.add("wrongEx")
+        if(mode === 0){
+            //모드 1인 경우
+            wrongEx.innerText = `${options[i]["ex"]}`
+        }   else{
+            // 모드 2인 경우
+            wrongEx.innerText = `${options[i]["title"]}`
+        }
+        
+        optionGroup.appendChild(option)
+        optionGroup.appendChild(wrongEx)
+        Div_options.appendChild(optionGroup)
+        // Div_options.appendChild(option)
     }
 }
 
@@ -80,6 +96,8 @@ function checkAnswer(idx, answer) {
         }
         alert(msg)
         Div_options.childNodes[idx].classList.add("wrong")
+
+        
 
         con = 0;
         continue_.hidden = true;

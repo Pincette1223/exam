@@ -9,6 +9,14 @@
     /* grid-template-columns: auto auto auto auto auto auto auto; */
 }
 
+
+@media (min-width : 600px) {
+    body{
+        width: 600px;
+        margin : 0 auto;
+    }
+}
+
 .color {
     height : 50px;
     margin : 1px 5px;
@@ -32,4 +40,9 @@
     width: 42%;
     text-align: center;
     border-radius: 100px;
+}
+
+.kk{
+    position: absolute;
+    bottom: 20px;
 }

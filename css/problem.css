@@ -80,21 +80,18 @@ header > *{
     border-radius: 10px;
     background-color: #FAFAFA;
     text-align: center;
+
+    margin : 30px 30px;
 }
 
 .problem {
     padding : 30px 30px;
-    margin : 30px 60px;
 }
 
 .ex{
     font-size: 1.4em;
 }
 
-
-.optionGroup{
-    margin : 30px 60px;
-}
 
 .option{
     transition: 0.25s;
@@ -136,10 +133,12 @@ footer{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    justify-content : center;
 }
 
 .korean {
     font-size: 20px;
+    margin : auto 30px;
 }
 
 .continue {
@@ -158,7 +157,7 @@ footer{
 }
 
 @media (max-width : 530px){
-    .optionGroup, .problem{
+    .bg-nomal{
         margin : 30px 10px;
     }
 }

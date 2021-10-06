@@ -97,7 +97,7 @@ header > *{
     transition: 0.25s;
     padding : 16px 20px;
     font-size: 1.25em;
-    
+    margin-bottom: 0;
     cursor: pointer;
 }
 
@@ -122,6 +122,7 @@ header > *{
     color : red;
     font-size: 1.25em;
     display: none;
+    margin: auto 30px;
 }
 
 .wrong .wrongEx{

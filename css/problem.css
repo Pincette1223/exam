@@ -1,3 +1,7 @@
+/* header {background-color: #f00;}
+main {background-color: #0f0;}
+footer {background-color: #00f;} */
+
 * {
     margin: 0; padding: 0;
     box-sizing: border-box;
@@ -15,6 +19,9 @@ body {
 .content {
     width: 70vw;
     height: 100vh;
+
+    display: grid;
+    grid-template-rows: auto auto 10vh;
 }
 
 @media (max-width : 960px) {
@@ -25,7 +32,7 @@ body {
 
 header {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     flex-wrap: wrap;
     justify-content : center;
 
@@ -63,6 +70,14 @@ header > *{
     font-size: 1.1rem;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    padding : 0 20px;
+}
+
 .btns button{
     border: 0;
     background-color: #00000000;
@@ -74,14 +89,13 @@ header > *{
 }
 
 
-
 .bg-nomal{
     border : 2px solid #E4E4E4;
     border-radius: 10px;
     background-color: #FAFAFA;
     text-align: center;
 
-    margin : 30px 30px;
+    margin: 12px 0;
 }
 
 .problem {
@@ -103,8 +117,10 @@ header > *{
 
 
 .option:hover {
-    transform: scale(1.03);
-    box-shadow: 3px 3px 3px #E4E4E4;
+    transform: scale(1.025);
+    /* box-shadow: 3px 3px 3px #E4E4E4; */
+
+    border : 0;
     background-color: #6C6CFE;
     color : white;
 }
@@ -158,7 +174,7 @@ footer{
 }
 
 @media (max-width : 530px){
-    .bg-nomal{
-        margin : 30px 10px;
-    }
+    /* .bg-nomal{
+        margin : 0 0;
+    } */
 }

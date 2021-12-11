@@ -112,6 +112,12 @@ function checkAnswer(idx, answer) {
             continue_.hidden = false;
         }
 
+        if(max < con){
+            max = con
+            localStorage.setItem("max", max)
+            continue_.querySelector("b.max").innerText = `${max}회`
+        }
+
         setting()
     } else {
         let msg = `오답입니다.\n${getWrongKey(idx)}`
@@ -122,8 +128,6 @@ function checkAnswer(idx, answer) {
         con = 0;
         continue_.hidden = true;
     }
-
-    
 }
 
 
@@ -166,3 +170,8 @@ let data = datas[id]["d"]
 
 
 setting()
+
+
+var max = localStorage.getItem("max")
+if (max == null) max = 0;
+// console.log(max);

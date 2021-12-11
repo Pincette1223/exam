@@ -159,7 +159,7 @@ footer{
 }
 
 .continue {
-    float: right;
+    /* float: right; */
     font-size: 2em;
 }
 

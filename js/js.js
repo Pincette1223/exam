@@ -6,10 +6,10 @@ for(var i = 0; i < datas.length; i++){
     document.querySelectorAll("div.buttons")[0].appendChild(button)
 }
 
-let button = document.createElement("button")
-button.innerHTML = "2학기 중간고사 과학 지시약"
-button.setAttribute("onclick", `location.href = './jisi.html'`)
-document.querySelectorAll("div.buttons")[0].appendChild(button)
+// let button = document.createElement("button")
+// button.innerHTML = "2학기 중간고사 과학 지시약"
+// button.setAttribute("onclick", `location.href = './jisi.html'`)
+// document.querySelectorAll("div.buttons")[0].appendChild(button)
 
 
 const toDay = new Date()

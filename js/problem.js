@@ -120,6 +120,7 @@ function checkAnswer(idx, answer) {
 
         setting()
     } else {
+        addWrongList(options[idx].title)
         let msg = `오답입니다.\n${getWrongKey(idx)}`
         // alert(msg)
 
@@ -130,6 +131,12 @@ function checkAnswer(idx, answer) {
     }
 }
 
+function addWrongList(title){
+    if(title in wrongList) wrongList[title] += 1
+    else wrongList[title] = 1
+
+    localStorage.setItem(`wrongList_${id}`, JSON.stringify(wrongList))
+}
 
 
 
@@ -144,8 +151,15 @@ const problemTitle = document.querySelector(".problem-title");
 let mode = 0;
 let options = []
 
+let con = 0
+const id = Number(get_quers()["id"])
+let data = datas[id]["d"]
+
 var max = localStorage.getItem("max")
 if (max == null) max = 0;
+
+let wrongList = localStorage.getItem(`wrongList_${id}`)
+if (wrongList == null) wrongList = {}
 
 continue_.hidden = true;
 continue_.querySelector("b.max").innerText = `${max}회`
@@ -166,9 +180,6 @@ modeChange.addEventListener("click", () => {
 })
 
 
-let con = 0
-const id = Number(get_quers()["id"])
-let data = datas[id]["d"]
 
 
 

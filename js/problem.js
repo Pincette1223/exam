@@ -153,6 +153,8 @@ let options = []
 
 let con = 0
 const id = Number(get_quers()["id"])
+checkOutside(id)
+
 let data = datas[id]["d"]
 
 var max = localStorage.getItem("max")
@@ -160,6 +162,8 @@ if (max == null) max = 0;
 
 let wrongList = JSON.parse(localStorage.getItem(`wrongList_${id}`))
 if (wrongList == null) wrongList = {}
+
+
 
 continue_.hidden = true;
 continue_.querySelector("b.max").innerText = `${max}회`
@@ -178,8 +182,6 @@ modeChange.addEventListener("click", () => {
     
     setting()
 })
-
-
 
 
 

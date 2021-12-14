@@ -1,5 +1,6 @@
-data = datas[get_quers()["id"]]["d"]
-
+const id = get_quers()["id"]
+data = datas[id]["d"]
+checkOutside(id)
 document.querySelector(".tmi").innerText = `전체 ${data.length}개..`
 
 OnO = []

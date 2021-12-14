@@ -1606,9 +1606,11 @@ function get_quers() {
 }
 
 id = Number(get_quers()["id"])
-// alert(id)
-if ((window.location.href).indexOf("index.html") === -1) {
-    if (isNaN(id) || id < 0 || id > datas.length) {
-        location.href = "/index.html"
+
+function checkOutside(id){
+    if ((window.location.href).indexOf("index.html") === -1) {
+        if (isNaN(id) || id < 0 || id > datas.length) {
+            location.href = "/index.html"
+        }
     }
 }

@@ -144,8 +144,11 @@ const problemTitle = document.querySelector(".problem-title");
 let mode = 0;
 let options = []
 
+var max = localStorage.getItem("max")
+if (max == null) max = 0;
 
 continue_.hidden = true;
+continue_.querySelector("b.max").innerText = `${max}회`
 
 modeChange.addEventListener("click", () => {
     modeChange.innerText = `모드${2 - mode}`
@@ -172,6 +175,5 @@ let data = datas[id]["d"]
 setting()
 
 
-var max = localStorage.getItem("max")
-if (max == null) max = 0;
+
 // console.log(max);

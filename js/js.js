@@ -3,6 +3,10 @@ for(var i = 0; i < datas.length; i++){
     button.setAttribute("onclick", `location.href = './problem.html?id=${i}'`)
     button.innerHTML = `${datas[i]["time"]} 국어 ${datas[i]["type"]}`
 
+    if(i == 5){
+        button.classList.add("currentExam")
+    }
+
     document.querySelectorAll("div.buttons")[0].appendChild(button)
 }
 

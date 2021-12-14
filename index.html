@@ -92,6 +92,28 @@
             box-shadow: 3px 3px 3px #cccccc;
         }
 
+        .currentExam {
+            background-color: #3b9bd9;
+            color : white;
+            font-weight: bold;
+            border: 0;
+
+            animation-name: currentExamButtonRotate;
+            animation-duration: 500ms;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+        }
+
+        @keyframes currentExamButtonRotate {
+            from {
+                transform : rotate(-2deg);
+            }
+            to {
+                transform : rotate(2deg);
+            }
+        }
+
         del {
             color: rgb(156, 153, 153);
         }

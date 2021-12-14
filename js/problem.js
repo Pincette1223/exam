@@ -121,7 +121,7 @@ function checkAnswer(idx, answer) {
         setting()
     } else {
         let msg = `오답입니다.\n${getWrongKey(idx)}`
-        alert(msg)
+        // alert(msg)
 
         Div_options.childNodes[idx].classList.add("wrong")
 

@@ -21,12 +21,15 @@ const id = get_quers()["id"]
 checkOutside(id)
 
 const wrongList = JSON.parse(localStorage.getItem(`wrongList_${id}`))
-const wrongListValues = Object.values(wrongList)
 
 if (wrongList == null) {
     alert("해당 부분에 아직 오답이 없습니다. 문제를 더 풀어보세요!")
     location.href = `./problem.html?id=${id}`
 }
+
+
+const wrongListValues = Object.values(wrongList)
+
 
 // console.log(wrongList);
 

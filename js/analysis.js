@@ -43,7 +43,7 @@ new Chart(document.getElementById("bar-chart"), {
         labels: Object.keys(wrongList),
         datasets: [
             {
-                label: "Population (millions)",
+                label: "오답 횟수",
                 backgroundColor: colors,
                 data: wrongListValues
             }

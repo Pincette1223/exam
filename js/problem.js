@@ -158,7 +158,7 @@ let data = datas[id]["d"]
 var max = localStorage.getItem("max")
 if (max == null) max = 0;
 
-let wrongList = localStorage.getItem(`wrongList_${id}`)
+let wrongList = JSON.parse(localStorage.getItem(`wrongList_${id}`))
 if (wrongList == null) wrongList = {}
 
 continue_.hidden = true;

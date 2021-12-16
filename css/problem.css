@@ -117,12 +117,16 @@ main {
     cursor: pointer;
 }
 
+.optionGroup:hover{
+    /* transform: scale(1.025); */
+}
+
 
 .option:hover {
     transform: scale(1.025);
     /* box-shadow: 3px 3px 3px #E4E4E4; */
 
-    border : 0;
+    border-color : #6C6CFE;
     background-color: #6C6CFE;
     color : white;
 }

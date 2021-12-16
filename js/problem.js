@@ -50,9 +50,9 @@ function getWrongKey(idx){
 }
 
 function setting() {
-    if(0 < con && con <= 100 && con % 50 === 0){
+    if(0 < con && con <= 50 && con % 50 === 0){
         alert("연속 50번 정답이라니 당신은 천재인가요?")
-    }   else if(con > 100 && con % 50 === 0){
+    }   else if(con >= 100 && con % 50 === 0){
         alert(`연속 ${con}번 정답이라니 당신은 김도완인가요?`)
     }
 
@@ -104,7 +104,7 @@ function setting() {
 
 function checkAnswer(idx, answer) {   
     if (options[idx] === answer) {
-        alert("정답입니다.")
+        // alert("정답입니다.")
 
         con++;
         continue_.querySelector("b.num").innerText = `${con}회`
@@ -118,7 +118,13 @@ function checkAnswer(idx, answer) {
             continue_.querySelector("b.max").innerText = `${max}회`
         }
 
-        setting()
+        Div_options.childNodes[idx].classList.add("answer")
+        document.querySelectorAll(".problem")[0].classList.add("answer")
+
+        setTimeout(() => {
+            setting()
+            document.querySelectorAll(".problem")[0].classList.remove("answer")
+        }, 1000);
     } else {
         addWrongList(options[idx].title)
         let msg = `오답입니다.\n${getWrongKey(idx)}`

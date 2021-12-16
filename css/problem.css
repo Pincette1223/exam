@@ -100,6 +100,8 @@ main {
 
 .problem {
     padding : 30px 30px;
+
+    transition: background-color 0.25s;
 }
 
 .ex{
@@ -123,6 +125,14 @@ main {
     border : 0;
     background-color: #6C6CFE;
     color : white;
+}
+
+.answer .option, .problem.answer{
+    background-color: #099dff;
+}
+
+.problem.answer {
+    color: white;
 }
 
 .wrong .option{

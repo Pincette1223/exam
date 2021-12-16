@@ -129,9 +129,6 @@ main {
 
 .answer .option, .problem.answer{
     background-color: #099dff;
-}
-
-.problem.answer {
     color: white;
 }
 

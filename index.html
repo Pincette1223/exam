@@ -49,14 +49,15 @@
         .wrap {
             width: 100%;
             height: 100vh;
+
+            text-align: center;
         }
 
         .buttons {
-            /* display: flex;
-            flex-direction: column; */
-
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 20px;
+            justify-items: center;
         }
         
         @media (max-width : 1000px) {
@@ -76,7 +77,7 @@
             font-size: 1.5em;
             letter-spacing: -1px;
 
-            margin: 10px auto;
+            /* margin: 10px auto; */
             padding: 30px;
 
             background-color: #FAFAFA;
@@ -119,6 +120,16 @@
         del {
             color: rgb(156, 153, 153);
         }
+
+        .goto-github {
+            /* position: absolute;
+            left: 0;
+            bottom: 0; */
+
+            font-size: 24px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -129,8 +140,7 @@
         <p><del>즐거운</del> 국어 공부를 합시다.</p>
         <h1 class="dDay">국어 시험까지 D-1일</h1>
         <div class="buttons"></div>
-
-        <!-- <p><small><del>디자인이 갑자기 떡상했어요.</del></small></p> -->
+        <span class="goto-github" onclick="location.href = 'https:github.com/ckstmznf/exam'">코드보기</span>
     </div>
 
     <!-- <h4>디자인은 역시 Simple is best</h4> -->

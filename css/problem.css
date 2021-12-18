@@ -133,6 +133,7 @@ main {
 
 .answer .option, .problem.answer{
     background-color: #099dff;
+    border-color : #099dff;
     color: white;
 }
 
@@ -143,6 +144,7 @@ main {
 
 .wrong .option:hover{
     background-color: rgb(121, 0, 0);
+    border-color : rgb(121, 0, 0);
 }
 
 .wrongEx {

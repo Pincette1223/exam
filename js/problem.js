@@ -102,7 +102,9 @@ function setting() {
 }
 
 
-function checkAnswer(idx, answer) {   
+function checkAnswer(idx, answer) {
+    if(currentAnswer) return
+
     if (options[idx] === answer) {
         // alert("정답입니다.")
 
@@ -124,7 +126,11 @@ function checkAnswer(idx, answer) {
         setTimeout(() => {
             setting()
             document.querySelectorAll(".problem")[0].classList.remove("answer")
+
+            currentAnswer = false
         }, 1000);
+
+        currentAnswer = true
     } else {
         addWrongList(options[idx].title)
         let msg = `오답입니다.\n${getWrongKey(idx)}`
@@ -156,6 +162,7 @@ const problemTitle = document.querySelector(".problem-title");
 
 let mode = 0;
 let options = []
+let currentAnswer = false
 
 let con = 0
 const id = Number(get_quers()["id"])

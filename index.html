@@ -37,12 +37,13 @@
             height: 100vh;
         }
 
-        p, h1 {
+        p,
+        h1 {
             font-weight: bold;
             text-align: center;
         }
 
-        .dDay{
+        .dDay {
             font-size: 1.75em;
         }
 
@@ -59,15 +60,15 @@
             grid-gap: 20px;
             justify-items: center;
         }
-        
+
         @media (max-width : 1000px) {
-            .buttons{
+            .buttons {
                 grid-template-columns: 1fr 1fr;
             }
         }
 
         @media (max-width : 700px) {
-            .buttons{
+            .buttons {
                 grid-template-columns: 1fr;
             }
         }
@@ -97,7 +98,7 @@
 
         .currentExam {
             background-color: #3b9bd9;
-            color : white;
+            color: white;
             font-weight: bold;
             border: 0;
 
@@ -110,10 +111,11 @@
 
         @keyframes currentExamButtonRotate {
             from {
-                transform : rotate(-2deg);
+                transform: rotate(-2deg);
             }
+
             to {
-                transform : rotate(2deg);
+                transform: rotate(2deg);
             }
         }
 
@@ -146,6 +148,15 @@
     <!-- <h4>디자인은 역시 Simple is best</h4> -->
     <script src="js/js.js"></script>
 
+
+    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+    <script type="text/javascript">
+        if (!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "df1f8662fe27f8";
+        if (window.wcs) {
+            wcs_do();
+        }
+    </script>
 </body>
 
 </html>

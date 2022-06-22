@@ -1,162 +1,155 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-208920377-1"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-208920377-1"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-        gtag('config', 'UA-208920377-1');
+      gtag("config", "UA-208920377-1");
     </script>
 
-
-    <meta charset="UTF-8">
-    <title>국어 어휘 / 한자성어 문제 사이트</title>
+    <meta charset="UTF-8" />
+    <title>역사 문제 사이트</title>
 
     <script src="js/data.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <link rel="stylesheet" href="css/font.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/font.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-        @font-face {
-            font-family: 'IBMPlexSansKR-Regular';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
+      * {
+        margin: 0;
+        padding: 0;
 
-        * {
-            margin: 0;
-            padding: 0;
-        }
+        font-family: "Pretendard Semibold";
+      }
 
-        body {
-            height: 100vh;
-        }
+      body {
+        height: 100vh;
+      }
 
-        p,
-        h1 {
-            font-weight: bold;
-            text-align: center;
-        }
+      p,
+      h1 {
+        font-weight: bold;
+        text-align: center;
+      }
 
-        .dDay {
-            font-size: 1.75em;
-        }
+      .wrap {
+        width: 100%;
+        height: 100vh;
 
-        .wrap {
-            width: 100%;
-            height: 100vh;
+        text-align: center;
+      }
 
-            text-align: center;
-        }
+      .buttons {
+        display: flex;
+      }
 
+      .button {
+        width: 500px;
+
+        font-size: 40px;
+
+        margin: 10px auto;
+        padding: 30px;
+
+        background-color: #fafafa;
+        border: 1px solid #d4d4d4;
+        border-radius: 20px;
+
+        box-shadow: 2px 2px 1px #e0e0e0;
+      }
+
+      @media (max-width: 1000px) {
         .buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-gap: 20px;
-            justify-items: center;
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .buttons {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      button {
+        width: 700px;
+        font-size: 1.75em;
+        /* letter-spacing: -1px; */
+
+        margin: 80px auto;
+        padding: 30px;
+
+        background-color: #fafafa;
+        border: 1px solid #d4d4d4;
+        border-radius: 20px;
+
+        box-shadow: 2px 2px 1px #e0e0e0;
+
+        transition: 0.875s;
+
+        cursor: pointer;
+      }
+
+      button:hover {
+        box-shadow: 10px 10px 10px #cccccc;
+      }
+
+      .currentExam {
+        background-color: #3b9bd9;
+        color: white;
+        font-weight: bold;
+        border: 0;
+
+        animation-name: currentExamButtonRotate;
+        animation-duration: 500ms;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+      }
+
+      @keyframes currentExamButtonRotate {
+        from {
+          transform: rotate(-2deg);
         }
 
-        @media (max-width : 1000px) {
-            .buttons {
-                grid-template-columns: 1fr 1fr;
-            }
+        to {
+          transform: rotate(2deg);
         }
+      }
 
-        @media (max-width : 700px) {
-            .buttons {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        button {
-            width: 90%;
-            font-size: 1.5em;
-            letter-spacing: -1px;
-
-            /* margin: 10px auto; */
-            padding: 30px;
-
-            background-color: #FAFAFA;
-            border: 1px solid #d4d4d4;
-            border-radius: 20px;
-
-            box-shadow: 2px 2px 1px #e0e0e0;
-
-            transition: 0.875s;
-
-            cursor: pointer;
-        }
-
-        button:hover {
-            box-shadow: 3px 3px 3px #cccccc;
-        }
-
-        .currentExam {
-            background-color: #3b9bd9;
-            color: white;
-            font-weight: bold;
-            border: 0;
-
-            animation-name: currentExamButtonRotate;
-            animation-duration: 500ms;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-            animation-timing-function: ease-in-out;
-        }
-
-        @keyframes currentExamButtonRotate {
-            from {
-                transform: rotate(-2deg);
-            }
-
-            to {
-                transform: rotate(2deg);
-            }
-        }
-
-        del {
-            color: rgb(156, 153, 153);
-        }
-
-        .goto-github {
-            /* position: absolute;
-            left: 0;
-            bottom: 0; */
-
-            font-size: 24px;
-            text-decoration: underline;
-            cursor: pointer;
-        }
+      del {
+        color: rgb(156, 153, 153);
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="wrap">
-        <lottie-player src="https://assets7.lottiefiles.com/private_files/lf30_9ltfoN.json" background="transparent"
-            speed="1" style="width: 300px; height: 300px; margin: 0 auto;" loop autoplay></lottie-player>
-        <p class="comment"><del>즐거운</del> 국어 공부를 합시다.</p>
-        <div class="buttons"></div>
-        <span class="goto-github" onclick="location.href = 'https://github.com/ckstmznf/exam'">코드보기</span>
-
+      <img
+        src="https://textbook.visang.com/upload/book/202001/20200130171546160.jpg"
+        style="width: 300px; height: 300px; margin: 0 auto; border-radius: 50%; margin-top: 30px; margin-bottom: 40px;"
+      ></img>
+      <p class="comment"><del>즐거운</del> 역사 공부를 합시다.</p>
+      <div class="buttons"></div>
     </div>
 
-    <!-- <h4>디자인은 역시 Simple is best</h4> -->
     <script src="js/js.js"></script>
-
 
     <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
     <script type="text/javascript">
-        if (!wcs_add) var wcs_add = {};
-        wcs_add["wa"] = "df1f8662fe27f8";
-        if (window.wcs) {
-            wcs_do();
-        }
+      if (!wcs_add) var wcs_add = {};
+      wcs_add["wa"] = "df1f8662fe27f8";
+      if (window.wcs) {
+        wcs_do();
+      }
     </script>
-</body>
-
+  </body>
 </html>

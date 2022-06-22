@@ -1,156 +1,120 @@
 function random(start, end) {
-    /* 시작값과 끝 값을 받아서 두 수 사이의 난수를 반환한다. */
-    return Math.floor(Math.random() * (end - start)) + start;
+  /* 시작값과 끝 값을 받아서 두 수 사이의 난수를 반환한다. */
+  return Math.floor(Math.random() * (end - start)) + start;
 }
 function shuffle(arr) {
-    for(let i = 0; i < 3; i++){
-        arr = arr.sort(() => Math.random() - 0.5)
-    }
+  for (let i = 0; i < 3; i++) {
+    arr = arr.sort(() => Math.random() - 0.5);
+  }
 
-    return arr
+  return arr;
 }
 
-function modeExSetup(){
-    if(id === 4){
-        if(mode === 0){
-            modeEx.innerText = "속담의 뜻이 나오고 속담을 맞추는 모드 입니다."
-            problemTitle.innerText = "다음에서 설명하는 속담은?"
-        }   else{
-            modeEx.innerText = "속담이 나오고 속담의 뜻을 맞추는 모드 입니다."
-            problemTitle.innerText = "다음 속담의 뜻은?"
-        }
-    }   else{
-        if(mode === 0){
-            modeEx.innerText = "어휘의 설명이 나오고 어휘를 맞추는 모드 입니다."
-        }   else{
-            modeEx.innerText = "어휘가 나오고 어휘에 대한 설명을 맞추는 모드 입니다."
-        }
-    }
+function modeExSetup() {
+  modeEx.innerText = "[ ] 안에 들어갈 말을 고르는 모드입니다.";
 }
 
-function createElement(tag, classList = [], text = ""){
-    let element = document.createElement(tag)
-    element.innerText = text
+function createElement(tag, classList = [], text = "") {
+  let element = document.createElement(tag);
+  element.innerText = text;
 
-    classList.forEach(class_ => {
-        element.classList.add(class_)
-    });
+  classList.forEach((class_) => {
+    element.classList.add(class_);
+  });
 
-    return element
+  return element;
 }
 
-function getWrongKey(idx){
-    if(mode === 0){
-        //모드 1인 경우
-        return options[idx]["ex"]
-    }   else{
-        // 모드 2인 경우
-        return options[idx]["title"]
-    }
+function getWrongKey(idx) {
+  return options[idx]["ex"];
 }
 
 function setting() {
-    if(0 < con && con <= 50 && con % 50 === 0){
-        alert("연속 50번 정답이라니 당신은 천재인가요?")
-    }   else if(con >= 100 && con % 50 === 0){
-        alert(`연속 ${con}번 정답이라니 당신은 김도완인가요?`)
-    }
+  if (0 < con && con <= 50 && con % 50 === 0) {
+    alert("연속 50번 정답이라니 당신은 천재인가요?");
+  }
 
-    while(Div_options.hasChildNodes()){
-        Div_options.removeChild(Div_options.firstChild)
-    }
+  while (Div_options.hasChildNodes()) {
+    Div_options.removeChild(Div_options.firstChild);
+  }
 
+  modeExSetup();
+  options = shuffle(datas[id]["d"]);
+  answer = options[0];
 
-    modeExSetup()
-    options = shuffle(datas[id]["d"]);
-    answer = options[0];
+  P_ex.innerText = answer["ex"];
 
-    if(mode === 0){
-        P_ex.innerText = answer["ex"]
-    }   else{
-        P_ex.innerText = answer["title"]
-    }
+  options = shuffle(options.slice(0, 5));
 
-    options = shuffle(options.slice(0, 5))
+  for (let i = 0; i < options.length; i++) {
+    const element = options[i];
+    // console.log(element);
 
-    for (let i = 0; i < options.length; i++) {
-        const element = options[i];
-        // console.log(element);
+    let optionGroup = createElement("div", ["optionGroup"]);
 
-        let optionGroup = createElement("div", ["optionGroup"]);
+    let option = createElement("div", [
+      "option",
+      "bg-nomal",
+      `mode${mode + 1}`,
+    ]);
+    option.innerText = options[i]["title"];
 
+    option.addEventListener("click", () => {
+      checkAnswer(i, answer);
+    });
 
-        let option = createElement("div", ["option", "bg-nomal", `mode${mode + 1}`])
-        if(mode == 0){
-            option.innerText = options[i]["title"]
-        }   else{
-            option.innerText = options[i]["ex"]
-        }
-
-        option.addEventListener(
-            "click",
-            () => { checkAnswer(i, answer)}
-        )
-
-        let wrongEx = createElement("div", ["wrongEx"])
-        wrongEx.innerText = getWrongKey(i)
-        
-        optionGroup.appendChild(option)
-        optionGroup.appendChild(wrongEx)
-        Div_options.appendChild(optionGroup)
-    }
+    optionGroup.appendChild(option);
+    Div_options.appendChild(optionGroup);
+  }
 }
-
 
 function checkAnswer(idx, answer) {
-    if(currentAnswer) return
+  if (currentAnswer) return;
 
-    if (options[idx] === answer) {
-        // alert("정답입니다.")
+  if (options[idx] === answer) {
+    // alert("정답입니다.")
 
-        con++;
-        continue_.querySelector("b.num").innerText = `${con}회`
-        if (con === 2) {
-            continue_.hidden = false;
-        }
-
-        if(max < con){
-            max = con
-            localStorage.setItem("max", max)
-            continue_.querySelector("b.max").innerText = `${max}회`
-        }
-
-        Div_options.childNodes[idx].classList.add("answer")
-        document.querySelectorAll(".problem")[0].classList.add("answer")
-
-        setTimeout(() => {
-            setting()
-            document.querySelectorAll(".problem")[0].classList.remove("answer")
-
-            currentAnswer = false
-        }, 1000);
-
-        currentAnswer = true
-    } else {
-        addWrongList(options[idx].title)
-        let msg = `오답입니다.\n${getWrongKey(idx)}`
-        // alert(msg)
-
-        Div_options.childNodes[idx].classList.add("wrong")
-
-        con = 0;
-        continue_.hidden = true;
+    con++;
+    continue_.querySelector("b.num").innerText = `${con}회`;
+    if (con === 2) {
+      continue_.hidden = false;
     }
+
+    if (max < con) {
+      max = con;
+      localStorage.setItem("max", max);
+      continue_.querySelector("b.max").innerText = `${max}회`;
+    }
+
+    Div_options.childNodes[idx].classList.add("answer");
+    document.querySelectorAll(".problem")[0].classList.add("answer");
+
+    setTimeout(() => {
+      setting();
+      document.querySelectorAll(".problem")[0].classList.remove("answer");
+
+      currentAnswer = false;
+    }, 1000);
+
+    currentAnswer = true;
+  } else {
+    addWrongList(options[idx].title);
+    let msg = `오답입니다.\n${getWrongKey(idx)}`;
+    // alert(msg)
+
+    Div_options.childNodes[idx].classList.add("wrong");
+
+    con = 0;
+    continue_.hidden = true;
+  }
 }
 
-function addWrongList(title){
-    if(title in wrongList) wrongList[title] += 1
-    else wrongList[title] = 1
+function addWrongList(title) {
+  if (title in wrongList) wrongList[title] += 1;
+  else wrongList[title] = 1;
 
-    localStorage.setItem(`wrongList_${id}`, JSON.stringify(wrongList))
+  localStorage.setItem(`wrongList_${id}`, JSON.stringify(wrongList));
 }
-
-
 
 //matching
 const Div_options = document.querySelector(".options");
@@ -161,45 +125,39 @@ const modeEx = document.querySelector(".modeEx");
 const problemTitle = document.querySelector(".problem-title");
 
 let mode = 0;
-let options = []
-let currentAnswer = false
+let options = [];
+let currentAnswer = false;
 
-let con = 0
-const id = Number(get_quers()["id"])
-checkOutside(id)
+let con = 0;
+const id = Number(get_quers()["id"]);
+checkOutside(id);
 
-let data = datas[id]["d"]
+let data = datas[id]["d"];
 
-var max = localStorage.getItem("max")
+var max = localStorage.getItem("max");
 if (max == null) max = 0;
 
-let wrongList = JSON.parse(localStorage.getItem(`wrongList_${id}`))
-if (wrongList == null) wrongList = {}
-
-
+let wrongList = JSON.parse(localStorage.getItem(`wrongList_${id}`));
+if (wrongList == null) wrongList = {};
 
 continue_.hidden = true;
-continue_.querySelector("b.max").innerText = `${max}회`
+continue_.querySelector("b.max").innerText = `${max}회`;
 
-modeChange.addEventListener("click", () => {
-    modeChange.innerText = `모드${2 - mode}`
-    modeChange.classList.add(`mode${2 - mode}`)
-    modeChange.classList.remove(`mode${1 + mode}`)
-    modeExSetup()
-    
-    if(mode === 0){
-        mode++;
-    }   else{
-        mode--;
-    }
-    
-    setting()
-})
+// modeChange.addEventListener("click", () => {
+//   modeChange.innerText = `모드`;
+//   modeChange.classList.add(`mode${2 - mode}`);
+//   modeChange.classList.remove(`mode${1 + mode}`);
+//   modeExSetup();
 
+//   if (mode === 0) {
+//     mode++;
+//   } else {
+//     mode--;
+//   }
 
+//   setting();
+// });
 
-setting()
-
-
+setting();
 
 // console.log(max);

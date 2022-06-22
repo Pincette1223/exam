@@ -1,68 +1,83 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'UA-208920377-1');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-208920377-1");
     </script>
 
-    <meta charset="UTF-8">
-    <title>국어 어휘 문제 사이트</title>
-    <link rel="stylesheet" href="css/problem.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta charset="UTF-8" />
+    <title>역사 문제 사이트</title>
+    <link rel="stylesheet" href="css/problem.css" />
+    <link rel="stylesheet" href="css/font.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
 
-    <script src="https://kit.fontawesome.com/8ef3a014d4.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/8ef3a014d4.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="./js/data.js"></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: "Pretendard Semibold";
+      }
+    </style>
+  </head>
 
-<body>
+  <body>
     <div class="content">
-        <header>
-            <button class="modeChange mode1">모드1</button>
-            <p class="modeEx">어휘에 대한 설명이 나오고 어휘를 맞추는 모드 입니다.</p>
-            <div class="btns">
-                <button onclick="location.href = '/'">
-                    <i class="fas fa-home"></i>
-                    <span>메인 화면</span>
-                </button>
-                <button onclick="location.href = `/list.html?id=${get_quers()['id']}`">
-                    <i class="fas fa-list-ul"></i>
-                    <span>어휘 리스트 보기</span>
-                </button>
-                <button onclick="location.href = `/analysis.html?id=${get_quers()['id']}`">
-                    <i class="far fa-chart-bar"></i>
-                    <span>통계 보기</span>
-                </button>
-            </div>
-        </header>
-        <main>
-            <div class="problem bg-nomal">
-                <h2 class="problem-title">다음에서 설명하는 어휘는?</h2>
-                <!-- <p class="ex">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nemo rem dolore at, officiis rerum recusandae quam odio dicta quas natus. Praesentium, unde deleniti voluptatibus rerum ut eum aperiam magni.</p> -->
-                <p class="ex"></p>
-            </div>
+      <header>
+        <button class="modeChange mode1">모드</button>
+        <p class="modeEx">
+          어휘에 대한 설명이 나오고 어휘를 맞추는 모드 입니다.
+        </p>
+        <div class="btns">
+          <button onclick="location.href = './index.html'">
+            <i class="fas fa-home"></i>
+            <span>메인 화면</span>
+          </button>
+          <button
+            onclick="location.href = `./list.html?id=${get_quers()['id']}`"
+          >
+            <i class="fas fa-list-ul"></i>
+            <span>문제 리스트 보기</span>
+          </button>
+          <button
+            onclick="location.href = `./analysis.html?id=${get_quers()['id']}`"
+          >
+            <i class="far fa-chart-bar"></i>
+            <span>통계 보기</span>
+          </button>
+        </div>
+      </header>
+      <main>
+        <div class="problem bg-nomal">
+          <h2 class="problem-title">[ ] 안에 들어갈 알맞은 말을 고르시오.</h2>
+          <!-- <p class="ex">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nemo rem dolore at, officiis rerum recusandae quam odio dicta quas natus. Praesentium, unde deleniti voluptatibus rerum ut eum aperiam magni.</p> -->
+          <p class="ex"></p>
+        </div>
 
-            <div class="options">
-                <!-- <div class="optionGroup">
+        <div class="options">
+          <!-- <div class="optionGroup">
                         <div class="option bg-nomal mode1">asdss</div>
                         <div class="wrongEx">OOO입니다.</div>
                     </div>
                     -->
-            </div>
-        </main>
-        <footer>
-            <div class="korean">모든 어휘 자료는 <a href="https://www.korean.go.kr/">국립 국어원</a>에서 가져왔습니다.</div>
-            <div class="continue"><b class="num">2회</b> 연속 정답( Best : <b class="max">1회</b> )</div>
-            <!-- <span class="simsim" onclick="location.href = './simsim.html'">심심할때 보세요</span> -->
-        </footer>
+        </div>
+      </main>
+      <footer>
+        <div class="continue">
+          <b class="num">2회</b> 연속 정답( 최고 기록 : <b class="max">1회</b> )
+        </div>
+        <!-- <span class="simsim" onclick="location.href = './simsim.html'">심심할때 보세요</span> -->
+      </footer>
     </div>
     <script src="./js/problem.js"></script>
-</body>
-
+  </body>
 </html>
